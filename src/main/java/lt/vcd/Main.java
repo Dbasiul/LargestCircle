@@ -4,31 +4,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        if (!scanner.hasNextInt()) return;
-        int n = scanner.nextInt();
-
-        int[] radii = new int[n];
-        int maxRadius = Integer.MIN_VALUE;
-
-
+        Scanner sc = new Scanner(System.in);
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+        int[] r = new int[n];
+        int did = 0;
+        
         for (int i = 0; i < n; i++) {
-            radii[i] = scanner.nextInt();
-            if (radii[i] > maxRadius) {
-                maxRadius = radii[i];
+            r[i] = sc.nextInt();
+            if (r[i] > did) {
+                did = r[i];
             }
         }
-
-
-        int count = 0;
+        
+        int kiek = 0;
         for (int i = 0; i < n; i++) {
-            if (radii[i] == maxRadius) {
-                count++;
+            if (r[i] == did) {
+                kiek++;
             }
         }
-
-        System.out.println(maxRadius + " - " + count);
-        scanner.close();
+        
+        System.out.println(did + " - " + kiek);
     }
 }
